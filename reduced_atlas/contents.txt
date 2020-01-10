@@ -1,0 +1,18 @@
+This text file contains information describing the contents of folder github.com/lukewtait/evaluate_inverse_methods/HCP250_atlas
+The atlas is based upon the Human Connectome Project's multimodal parcellation of the human brain (Glasser et al 2016), and was reduced to 250 ROIs to be optimized for use with source reconstructed resting state MEG. Methods for reducing the atlas are described in the preprint Tait et al (2020) (doi: XXXX).
+
+--- Folder contents ---
+
+General info: 
+- ROI_labels.txt: A list of the names of each ROI. ROIs that were merged from the original atlas are denoted by a '+' (e.g. HCP360 ROIs V6 and V6A were merged in the HCP250 atlas, so ROI #5 is labelled L_V6_ROI + L_V6A_ROI)
+- ROI_colors.txt: Colours used for plotting the ROIs in the original Glasser et al (2016) paper and output from Freesurfer.
+- read_atlases.m: MATLAB script demonstrating an example of how to to read and plot the atlases.
+
+Volume parcellation:
+- vol_HCP250.nii: A NiFTi file containing a volumetric parcellation of the Freesurfer average brain at 2mm grid spacing. Each voxel has a value 0-250, corresponding to the ROI given in ROI_labels.txt. Voxels with a value of 0 are not in the grey matter space. 
+- vol_transform.txt: Affine transformation from voxel space to MNI coordinates (in mm).
+
+Surface parcellation:
+- surf_vertices.txt: MNI coordinates of vertices (in mm) of a traingulated mesh corresponding to the midpoint between the grey matter/white matter boundary and the pial surface of the Freesurfer average brain.
+- surf_faces.txt: Edges of triangles in the traingulated mesh described above.
+- surf_HCP250.txt: Surface parcellation of the Freesurfer average brain. Each entry in this vector corresponds to a vertex in surface_vertices.txt and has a value 0-250, corresponding to the ROI given in ROI_labels.txt. Voxels with a value of 0 are not classified in the parcellation.
