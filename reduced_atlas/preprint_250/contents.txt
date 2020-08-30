@@ -1,5 +1,5 @@
-This text file contains information describing the contents of folder github.com/lukewtait/evaluate_inverse_methods/HCP250_atlas
-The atlas is based upon the Human Connectome Project's multimodal parcellation of the human brain (Glasser et al 2016), and was reduced to 250 ROIs to be optimized for use with source reconstructed resting state MEG. Methods for reducing the atlas are described in the preprint Tait et al (2020) (doi: XXXX).
+This text file contains information describing the contents of folder github.com/lukewtait/evaluate_inverse_methods/reduced_atlas/preprint_250
+The atlas is based upon the Human Connectome Project's multimodal parcellation of the human brain (Glasser et al 2016), and was reduced to 250 ROIs to be optimized for use with source reconstructed resting state MEG. Methods for reducing the atlas are described in the preprint Tait et al (2020) (doi: XXXX). This is an old version, and a newer HCP230 atlas (submitted for publication) can be found at github.com/lukewtait/evaluate_inverse_methods/reduced_atlas/preprint_250
 
 --- Folder contents ---
 
