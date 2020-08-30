@@ -10,48 +10,42 @@ addpath ..
 % Load the atlas
 atlas = load('HCP230.mat') ; 
 
-% Load the individual data
-load('mri.mat') 
-
-% mri.mat contains: 
-% -mri: Fieldtrip tutorial data, downloaded from
+% To load the individual MRI, you require the Fieldtrip tutorial data, which
+% can be downloaded from 
 %    ftp://ftp.fieldtriptoolbox.org/pub/fieldtrip/tutorial/Subject01.zip
-%     has been slightly preprocessed according to code below
-% -vol: Fieldtrip headmodel structure, generated from the MRI using the
-%    code below (3 layer BEM model) following steps described in Fieldtrip
-%    tutorial (http://www.fieldtriptoolbox.org/tutorial/headmodel_eeg_bem/)
-
-% % ----------------  Code to generate mri and vol  ------------------
-% % Load mri
-% mri = ft_read_mri('Subject01.mri') ; 
+% You need to unzip this file and ensure that Subject01.mri is in this 
+% directory. 
 % 
-% % Process mri
-% mri = ft_convert_coordsys(mri,'acpc') ; % conver to acpc coordinates
-% cfg = struct ; 
-% cfg.resolution = 1 ; 
-% mri = ft_volumereslice(cfg,mri) ; % reslice to 1mm
-% 
-% % Segment
-% cfg = struct ; 
-% cfg.output = {'brain','skull','scalp'} ; % for 3 layer BEM
-% seg = ft_volumesegment(cfg,mri) ; 
-% 
-% % Create mesh
-% cfg = struct ; 
-% cfg.tissue = {'brain','skull','scalp'} ; 
-% cfg.numvertices = [3000 2000 1000] ; 
-% bnd = ft_prepare_mesh(cfg,seg) ; 
-% 
-% % Make headmodel
-% cfg = struct ; 
-% cfg.method = 'bemcp' ; 
-% vol = ft_prepare_headmodel(cfg,seg) ;
-% 
-% save('mri.mat','mri','vol')
-% 
-% % -------------------------------------------------------------------
+% Below we slightly preprocess the MRI data, and then use it to create a
+% Fieldtrip headmodel structure (vol), generated from the MRI using the
+% code below (3 layer BEM model) following steps described in Fieldtrip
+% tutorial (http://www.fieldtriptoolbox.org/tutorial/headmodel_eeg_bem/). 
 
 
+% Load mri
+mri = ft_read_mri('Subject01.mri') ; 
+
+% Process mri
+mri = ft_convert_coordsys(mri,'acpc') ; % conver to acpc coordinates
+cfg = struct ; 
+cfg.resolution = 1 ; 
+mri = ft_volumereslice(cfg,mri) ; % reslice to 1mm
+ 
+% Segment
+cfg = struct ; 
+cfg.output = {'brain','skull','scalp'} ; % for 3 layer BEM
+seg = ft_volumesegment(cfg,mri) ; 
+ 
+% Create mesh
+cfg = struct ; 
+cfg.tissue = {'brain','skull','scalp'} ; 
+cfg.numvertices = [3000 2000 1000] ; 
+bnd = ft_prepare_mesh(cfg,seg) ; 
+
+% Make headmodel
+cfg = struct ; 
+cfg.method = 'bemcp' ; 
+vol = ft_prepare_headmodel(cfg,seg) ;
 
 
 %% Method 1: Default settings
