@@ -105,7 +105,7 @@ cfg = struct ;
 cfg.grid = load('cortex_8196_HCP230.mat') ; % load example surface sourcemodel, which has tissue included
 cfg.method = 'template2individual' ; % we need to specify that we wish to warp the template grid to the individual
 
-sourcemodel_prealigned = align_individual2atlas(cfg,mri,atlas) ; 
+sourcemodel_prealigned = align_individual2atlas(cfg,mri) ; 
 
 % plot
 figure(3); plot_sourcemodel2atlas(sourcemodel_prealigned,vol) ; 
@@ -187,8 +187,8 @@ atlas = f_reduce_atlas230(HCPatlas) ; % downsample to 230 ROIs
 % plot
 figure(5)
 tissue = nan(length(mid_10003V.Vertices),1) ; 
-for i = 1:length(dsatlas)
-    ind = dsatlas(i).Vertices ; 
+for i = 1:length(atlas)
+    ind = atlas(i).Vertices ; 
     tissue(ind) = i ; 
 end
 patch('Vertices',mid_10003V.Vertices,'Faces',mid_10003V.Faces,'FaceColor','flat','FaceVertexCData',tissue)
