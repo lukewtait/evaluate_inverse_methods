@@ -1,4 +1,4 @@
-# evaluate_inverse_methods
+# Evaluate Inverse Methods
 
 This repository contains codes to run the analyses presented in: 
 
@@ -13,7 +13,7 @@ At present, all analyses are those presented in the preprint version. The versio
 
 The functions included in this repository are dependent on the [Fieldtrip toolbox for M/EEG Analysis](www.fieldtriptoolbox.org), which must be installed for the codes to run.
 
-### ./reduced_atlas
+### Reduced Atlas
 The sub-repository **evaluate_inverse_methods/reduced_atlas** contains files for a 230 ROI reduction of the Human Connectome Project's multimodal parcellation of the human brain based on MEG resolution properties. This 230 ROI atlas is presented in the version of the manuscript currently under review, and follows the methodology described in the preprint linked above to derive a 250 ROI atlas (available in **evaluate_inverse_methods/reduced_atlas/preprint_250**). 
 
 The atlas (**HCP230.mat**) is uploaded as a 1mm volumetric in the same format as the Fieldtrip template atlases (i.e. the output of a Fieldtrip function ft_read_atlas), and coregistered with the [Fieldtrip template anatomy](https://www.fieldtriptoolbox.org/template/), which is the Colin27 MRI in the MNI coordinate system. Therefore the atlas should be ready to integrate with the template head models, source models, and electrode models included with Fieldtrip. Two of the Fieldtrip template sourcemodels (4mm volumetric grid and 8196 dipole canonical cortical mesh) are included already coregistered to the atlas. 
