@@ -1,5 +1,11 @@
 function source = f_source_reconstruction(method,data,sourcemodel)
 
+% Note: Here we set regularization parameter cfg.lambda=0.05 for all algorithms. 
+% This does not allow for fair comparison between metrics. We will update a later
+% version upon acceptance of the manuscript (under review), which allows for 
+% estimating cfg.lambda based on the predicted SNR of the data, giving consistent
+% estimates between algorithms.
+
 % General options
 cfg = struct ; 
 cfg.method = method ; % 'lcmv','wlcmv','mne','wmne','sloreta', or 'eloreta'
