@@ -5,7 +5,7 @@ This repository contains codes to run the analyses presented in:
 *Towards optimal source reconstruction of resting MEG of the human brain: performance, precision, and parcellation*, Under review. [Preprint available on bioRxiv](https://doi.org/10.1101/2020.01.12.903302)
 
 The main function is **compare_algorithms.m**, which runs all metrics. This function does the following: 
-1. Source reconstructs the input data using the function **f_source_reconstruction.m** also available in this repository. 
+1. Source reconstructs the input data using the function **f_source_reconstruction.m** also available in this repository. Note that this function uses a fixed regularization parameter for all algorithms. In the later revised versions of the manuscript (under review), we altered this to calculate regularization parameter based on SNR. 
 1. If any of the input measures are 'rsq' or 'rsqcv' (or input measures is left empty): Calculates sensor variance explained by the source solution, either with the full solution (if 'rsq') or by using leave-one-out cross validation ('rsqcv') using the function **f_variance_analysis.m**.
 1. If any of the input measures are 'le' or 'sect' (or input measures is left empty): Calculates localization error ('le') and spatial extent of cross talk ('sect') using the function **f_resolution_analysis.m**. 
 
